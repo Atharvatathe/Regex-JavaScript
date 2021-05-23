@@ -6,13 +6,13 @@ class Pincode{
     }
 
     set pincode(pincode){
-        let pinRegex = RegExp('^[a-zA-Z][0-9]{6}$');
+        let pinRegex = RegExp('^[0-9]{3}[\\s][0-9]{3}$');
         if(pinRegex.test(pincode))
-            throw 'Wrong Pin Code';
-        else 
-            this._pincode = pincode;  
-    }
-    toString(){
+            this._pincode = pincode; 
+        else throw 'Wrong Pin Code';
+      }
+    
+      toString(){
         return "Pincode: " +this._pincode;
     }
 }
@@ -20,7 +20,7 @@ class Pincode{
 
 let pincodeRegex = new Pincode();
 try{
-pincodeRegex.pincode = "A400088";
+pincodeRegex.pincode = "400 088";
 console.log(pincodeRegex.toString());
 }catch (e){
     console.error(e);
